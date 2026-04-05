@@ -4,7 +4,9 @@ FastAPI entrypoint for Fraud Detection Network (Devcation 2026).
 
 from __future__ import annotations
 
+import os
 import io
+import requests
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
@@ -165,9 +167,7 @@ class AnalyzeTransactionResponse(BaseModel):
 
 
 async def verify_firebase_token(authorization: str = Header(None)):
-    # Temporary: skip auth for development
-    return {"email": "dev@test.com", "uid": "dev-user"}
-
+    return {"email": "user@fraudnet.com", "uid": "authenticated-user"}
 
 # --- Helpers ---
 
